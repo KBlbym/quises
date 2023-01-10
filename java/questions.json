@@ -1,0 +1,12 @@
+[
+    {
+        "pregunta": "¿Cuál es la descripción que crees que define mejor el concepto 'clase' en la programación orientada a objetos?",
+        "opciones" : [
+            "Es un concepto similar al de 'array'",
+            "Es un tipo particular de variable",
+            "Es un modelo o plantilla a partir de la cual creamos objetos",
+            "Es una categoria de datos ordenada secuencialmente"
+        ],
+        "correct" : "Es un modelo o plantilla a partir de la cual creamos objetos"
+    }
+]

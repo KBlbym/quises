@@ -1,0 +1,18 @@
+[
+    {
+        "section" : "LND",
+        "title" : "HTML5",
+        "img" : "htmlQuiz/img/HTML5_logo.svg",
+        "url" : "htmlQuiz/App.html",
+        "description" : "Test de conocimieto de etequitas de HTML5",
+        "publish" : false
+    },
+    {
+        "section" : "PRO",
+        "title" : "Java -POO-",
+        "img" : "java/img/java.webp",
+        "url" : "java/index.html",
+        "description" : "Test de conocimieto de etequitas de HTML5",
+        "publish" : true
+    }
+]
