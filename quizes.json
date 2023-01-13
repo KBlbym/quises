@@ -5,7 +5,7 @@
         "img" : "htmlQuiz/img/HTML5_logo.svg",
         "url" : "htmlQuiz/App.html",
         "description" : "Test de conocimieto de etequitas de HTML5",
-        "publish" : false
+        "publish" : true
     },
     {
         "section" : "PRO",

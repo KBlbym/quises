@@ -28,7 +28,7 @@ function init(){
 function printQuestion(){
     let h2 = document.createElement("h2");
     h2.setAttribute("class", "my-5");
-    h2.innerText = questions[currentPosition].pregunta;
+    h2.innerHTML = questions[currentPosition].pregunta;
     htmlCode = document.createElement("div");
     htmlCode.appendChild(h2);
 

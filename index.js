@@ -2,7 +2,7 @@ import data from './quizes.json' assert { type: 'json' };
 
 let lista = document.getElementById("testsList");
 data.forEach(item => {
-    if(!item.publish){
+    if(item.publish){
         lista.innerHTML += `<div class="col">
         <div class="card h-100 bg-secondary" style="background-color:#121212 !important">
         <div class="card-header">${item.section}</div>
