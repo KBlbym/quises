@@ -23,9 +23,30 @@ const questions = [
             return this.options[1];
         }
     }
+    ,
+    {
+        pregunta : "¿Qué es un paradigma?",
+        options : [
+            "Conjunto de ideas para la contrucción de un programa",
+            "Define el problema y el mismo busca la solución mediante razonamiento lógico",
+            "La forma en que establece comunicación e intercambia mensajes",
+            "Un proceso  para extraer las características esenciales de un objeto"
+        ],
+        correct : function (){
+            return this.options[0];
+        }
+    },
+    {
+        pregunta : "Es base de la ",
+        options : [
+            "Conjunto de ideas para la contrucción de un programa",
+            "Define el problema y el mismo busca la solución mediante razonamiento lógico",
+            "La forma en que establece comunicación e intercambia mensajes",
+            "Un proceso  para extraer las características esenciales de un objeto"
+        ],
+        correct : function (){
+            return this.options[0];
+        }
+    }
 ]
-for (const iterator of questions) {
-    console.log(iterator);
-    console.log(iterator.correct());
-    
-}
+export {questions};
