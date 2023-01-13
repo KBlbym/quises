@@ -1,8 +1,8 @@
 import { questions } from "./questions.js";
 import { printOpcions, printDivContent } from "../templates/question.js";
 const app = document.getElementById("app");
-const title = "Test de conocimiento de Java".toUpperCase();
-const img  = "../img/java.webp"
+const title = "";
+const img  = ""
 /**
  * la nota de cada respuesta correcta es segun el totalidad de las preguntas.
  * la nota maxima es de 100.
@@ -68,12 +68,14 @@ function answer(event){
         console.log(score)
     }
 }
-function startGame(){
-    app.innerHTML = `<img src="./img/java.webp" alt="JAVA logo" width="200px"></img><br>`;
+function startGame(obj){
+    console.log(obj[0].description);
+    title = obj[0].description.toUpperCase();
+    app.innerHTML = `<img src="${obj[0].img}" alt="${obj[0].title}" width="200px"></img><br>`;
     app.innerHTML += `<input class="btn btn-outline-info my-5" type="button" id="startGame" value="Empezar"></input><br>`
     app.innerHTML += `<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Reglas</button>`
 }
-function endGame(params) {
+function endGame() {
     
     app.appendChild(printDivContent(
         `Has contestado a 
@@ -95,5 +97,7 @@ function endGame(params) {
    let h1 =  document.querySelector("h1");
    h1.innerText = title;
 })();
-startGame();
-document.getElementById("startGame").addEventListener("click", init);
+//startGame();
+//document.getElementById("startGame").addEventListener("click", init);
+
+export {startGame, init}

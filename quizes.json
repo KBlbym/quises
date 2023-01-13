@@ -9,10 +9,19 @@
     },
     {
         "section" : "PRO",
-        "title" : "Java -POO-",
+        "title" : "Java",
         "img" : "java/img/java.webp",
         "url" : "java/index.html",
         "description" : "Test de conocimieto de Java",
+        "publish" : true
+    }
+    ,
+    {
+        "section" : "SSF",
+        "title" : "Sistemas informáticas",
+        "img" : "java/img/sistemas.webp",
+        "url" : "./index.html",
+        "description" : "Test de conocimieto Sisetemas informaticas",
         "publish" : true
     }
 ]
