@@ -1,0 +1,27 @@
+[
+    {
+        "id" : "LND",
+        "title" : "HTML5",
+        "img" : "htmlQuiz/img/HTML5_logo.svg",
+        "url" : "htmlQuiz/App.html",
+        "description" : "Test de conocimieto de etequitas de HTML5",
+        "publish" : true
+    },
+    {
+        "id" : "PRO",
+        "title" : "Java",
+        "img" : "./java/img/java.webp",
+        "url" : "./java/index.html",
+        "description" : "Test de conocimieto de Java",
+        "publish" : true
+    }
+    ,
+    {
+        "id" : "SSF",
+        "title" : "Sistemas informáticas",
+        "img" : "./java/img/sistemas.webp",
+        "url" : "./index.html",
+        "description" : "Test de conocimieto Sisetemas informaticas",
+        "publish" : true
+    }
+]

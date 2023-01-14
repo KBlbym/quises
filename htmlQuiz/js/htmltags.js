@@ -19,7 +19,7 @@ let duracionInMinuts = 5;
 let tagsRemaining = totalTags;
 
 let messageInfo = `Dispones de ${duracionInMinuts} minutos para realizar el test.<br>
- Hay ${totalTags} etiquetas, necesitas el ${percentageNeeded}% de aciertos para superar el test.<br><strong>¡Serás capaz!</strong>`;
+ Hay ${totalTags} etiquetas, necesitas el ${percentageNeeded}% de aciertos para superar el test.<br><strong>¿Serás capaz?</strong>`;
 
 gameInfo.querySelector("#messageInfo").innerHTML = messageInfo;
 function checkTag() {
