@@ -1,11 +1,18 @@
 const javaq = [
     
     {
-        pregunta : `¿Cual es el resultado del siguiente programa?<pre class="pre-scrollable">int i=1;
-        int j=2;
-        int k=3;
-        int m=2;
-        System.out.println ((j &gt;= i) || (k == m));</pre>`,
+        pregunta : `¿Cual es el resultado del siguiente programa?
+    <pre>
+    <code>
+    <span class="line">int i=1;</span>
+    <span class="line">int j=2;</span>
+    <span class="line">int k=3;</span>
+    <span class="line">int m=2;</span>
+    <span class="line">
+    System.out.println ((j &gt;= i) || (k == m));
+    </span>
+    </pre>
+    </code>`,
         options : [
             "true",
             "false",
@@ -42,12 +49,16 @@ const javaq = [
     },
     {
         pregunta : `¿Qué calcula nuestro método misterio?
-        <pre class="pre-scrollable">public static int misterio(int uno, int dos){
-            int calculo = 1;
-            for (int x=0;x&lt;dos;x++)
-              calculo *= uno;
-            return calculo;
-          }</pre>`,
+    <pre>
+    <code>
+    public static int misterio(int uno, int dos){
+        int calculo = 1;
+        for (int x=0;x&lt;dos;x++)
+        calculo *= uno;
+        return calculo;
+    }
+    </code>
+    </pre>`,
         options : [
             "La multiplicación del número uno con el número dos",
             "El factorial del número uno",
