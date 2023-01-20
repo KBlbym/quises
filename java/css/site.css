@@ -1,16 +1,35 @@
+:root{
+    --backgroudDark: #161b22;
+    --backgroudDarkLight:#24292f;
+}
 *{
     padding: 0;
     margin: 0;
 }
+.text-bg-dark{
+    background-color: #1b1f24 !important;
+}
+.bg-secondary{
+    background-color: var(--backgroudDarkLight) !important;
+}
+div.bg-secondary > div.card-header{
+    background-color: var(--backgroudDark) !important;
+}
 .btn-secondary{
-    background-color: #191818;
-    border-color: #121212;
+    background-color:#191818 ;
+    border-color: var(--backgroudDarkLight) ;
     box-shadow: 0px 0px 2px 1px #ffffff40;
 }
 pre{
-    font-size: 80%;
-    margin-top: 20px;
+    font-size: initial;
+    background-color: var(--backgroudDarkLight);
+    padding: 10px;
+    margin: 20px;
     text-align: start;
-    background: #3d3c3c;
+    color: #bbbbbb;
     border-radius: 10px;
+    box-shadow: 0 3px 2px rgb(0 0 0 / 4%), 0 7px 5px rgb(0 0 0 / 2%), 0 13px 10px rgb(0 0 0 / 2%), 0 22px 17px rgb(0 0 0 / 2%);
+}
+.card, pre{
+    border: 2px solid #30363d;
 }

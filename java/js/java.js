@@ -2,17 +2,13 @@ const javaq = [
     
     {
         pregunta : `¿Cual es el resultado del siguiente programa?
-    <pre>
-    <code>
-    <span class="line">int i=1;</span>
-    <span class="line">int j=2;</span>
-    <span class="line">int k=3;</span>
-    <span class="line">int m=2;</span>
-    <span class="line">
+        <pre class="pre-scrollable">
+    int i=1;
+    int j=2;
+    int k=3;
+    int m=2;
     System.out.println ((j &gt;= i) || (k == m));
-    </span>
-    </pre>
-    </code>`,
+        </pre>`,
         options : [
             "true",
             "false",
@@ -49,16 +45,12 @@ const javaq = [
     },
     {
         pregunta : `¿Qué calcula nuestro método misterio?
-    <pre>
-    <code>
-    public static int misterio(int uno, int dos){
-        int calculo = 1;
-        for (int x=0;x&lt;dos;x++)
-        calculo *= uno;
-        return calculo;
-    }
-    </code>
-    </pre>`,
+        <pre class="pre-scrollable">public static int misterio(int uno, int dos){
+            int calculo = 1;
+            for (int x=0;x&lt;dos;x++)
+              calculo *= uno;
+            return calculo;
+          }</pre>`,
         options : [
             "La multiplicación del número uno con el número dos",
             "El factorial del número uno",
@@ -83,12 +75,15 @@ const javaq = [
         }
     },
     {
-        pregunta : "Es base de la ",
+        pregunta : `¿Cuál es el resultado de la operación?
+        <pre>
+    System.out.println(2+6<<1);
+        </pre>`,
         options : [
-            "Conjunto de ideas para la contrucción de un programa",
-            "Define el problema y el mismo busca la solución mediante razonamiento lógico",
-            "La forma en que establece comunicación e intercambia mensajes",
-            "Un proceso  para extraer las características esenciales de un objeto"
+            "16",
+            "14",
+            "12",
+            "8"
         ],
         correct : function (){
             return this.options[0];

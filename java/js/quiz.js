@@ -14,6 +14,20 @@ let quiz = {
     correctAnswers : 0,
     inCorrectAnswers : 0,
     pointPerCorrectAnswer : 0,
-    scoreToWin : max * 50 / 100
+    scoreToWin : max * 50 / 100,
+    hightScore : 0,
+    timeToDo : 5,
+    getScore : function () {
+        return Math.floor(this.score);
+    },
+    getNormas: function () {
+        return `<h2 class="text-uppercase">normas del juegos</h2>
+    <p>-la Puntuación maxíma es de ${max} <br>
+     -Por cada respuesta correcta son: ${Math.floor(max / this.questions.length) } <br>
+     -Un fallo resta una pregunta correcta<br>
+     -Dispones de ${this.timeToDo} min para la realización del test</p>`;
+    }
 }
 export {quiz}
+
+
