@@ -13,17 +13,12 @@ function printOpcions(options){
     return div;
 }
 
-function printDivContent(text, element, estilo, id){
+function printElementContent(text, element, estilo, id){
+    const containsHTML = (text) => /<[a-z][\s\S]*>/i.test(text);
     estilo != undefined ? estilo : "";
     id != undefined ? id : "";
     const div = document.createElement("div");
-    div.innerHTML = `<${element} class="my-5 ${estilo}" id=${id}>${text}</${element}>`
+    div.innerHTML = `<${element} class="${estilo}" id=${id}>${text}</${element}>`
     return div;
 }
- 
-function printResult() {
-
-    
-}
-
-export {printOpcions, printDivContent};
+export {printOpcions, printElementContent};

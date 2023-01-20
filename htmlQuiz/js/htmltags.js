@@ -23,7 +23,7 @@ let messageInfo = `Dispones de ${duracionInMinuts} minutos para realizar el test
 
 gameInfo.querySelector("#messageInfo").innerHTML = messageInfo;
 function checkTag() {
-    let valor = input.value;
+    let valor = input.value.toLowerCase();
     if(htmltags.includes(valor)){
         correctAnswerCount++;
         const index = htmltags.indexOf(valor);
