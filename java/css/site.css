@@ -6,6 +6,9 @@
     padding: 0;
     margin: 0;
 }
+#score .badge{
+ font-size: xx-large;
+}
 .text-bg-dark{
     background-color: #1b1f24 !important;
 }

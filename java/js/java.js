@@ -15,8 +15,8 @@ const javaq = [
             "undefined",
             "Da error de compilación"
         ],
-        correct : function (){
-            return this.options[0];
+        isCorrect : function (option){
+            return option === this.options[0];
         }
     },
     {
@@ -27,8 +27,8 @@ const javaq = [
             "Es un modelo o plantilla a partir de la cual creamos objetos",
             "Es una categoria de datos ordenada secuencialmente"
         ],
-        correct : function (){
-            return this.options[2];
+        isCorrect : function (option){
+            return option === this.options[2];
         }
     },
     {
@@ -39,8 +39,8 @@ const javaq = [
             "La forma en que establece comunicación e intercambia mensajes",
             "Su interfaz y los eventos asociados"
         ],
-        correct : function (){
-            return this.options[1];
+        isCorrect : function (option){
+            return option === this.options[1];
         }
     },
     {
@@ -57,11 +57,10 @@ const javaq = [
            "La potencia del número uno elevado al número dos",
            "Ninguna de las respuestas es correcta"
         ],
-        correct : function (){
-            return this.options[1];
+        isCorrect : function (option){
+            return option === this.options[1];
         }
-    }
-    ,
+    },
     {
         pregunta : "¿Qué es un paradigma?",
         options : [
@@ -70,8 +69,8 @@ const javaq = [
             "La forma en que establece comunicación e intercambia mensajes",
             "Un proceso  para extraer las características esenciales de un objeto"
         ],
-        correct : function (){
-            return this.options[0];
+        isCorrect : function (option){
+            return option === this.options[0];
         }
     },
     {
@@ -85,8 +84,128 @@ const javaq = [
             "12",
             "8"
         ],
-        correct : function (){
-            return this.options[0];
+        isCorrect : function (option){
+            return option === this.options[0];
+        }
+    },
+    {
+        pregunta : `¿Cuál es la sintaxis correcta para declarar una variable en Java?`,
+        options : [
+            "var variableName;",
+            "variableName;",
+            "int variableName;",
+            "String variableName;"
+        ],
+        isCorrect : function (option){
+            return option === this.options[2];
+        }
+    },
+    {
+        pregunta : `¿Qué es una clase en Java?`,
+        options : [
+            "Una colección de métodos y variables",
+            "Una variable global",
+            "Un conjunto de instrucciones",
+            "Una función"
+        ],
+        isCorrect : function (option){
+            return option === this.options[0];
+        }
+    },
+    {
+        pregunta : `¿Qué es un objeto en Java?`,
+        options : [
+            "Una variable global",
+            "Una instancia de una clase",
+            "Un conjunto de instrucciones",
+            "Una función"
+        ],
+        isCorrect : function (option){
+            return option === this.options[1];
+        }
+    },
+    {
+        pregunta : `¿Cómo se utiliza la palabra clave "extends" en Java?`,
+        options : [
+            "Para crear una nueva clase a partir de una clase existente",
+            "Para importar métodos de otra clase",
+            "Para crear una variable global",
+            "Para crear un objeto"
+        ],
+        isCorrect : function (option){
+            return option === this.options[0];
+        }
+    },
+    {
+        pregunta : `¿Qué es una excepción en Java?`,
+        options : [
+            "Una condición de error que detiene la ejecución del programa",
+            "Una variable global",
+            "Un conjunto de instrucciones",
+            "Una función"
+        ],
+        isCorrect : function (option){
+            return option === this.options[0];
+        }
+    },
+    {
+        pregunta : `¿Cómo se utiliza la palabra clave "try" en Java?`,
+        options : [
+            "Para ejecutar un bloque de código y detectar posibles excepciones",
+            "Para importar métodos de otra clase",
+            "Para crear una variable global",
+            "Para crear un objeto"
+        ],
+        isCorrect : function (option){
+            return option === this.options[0];
+        }
+    },
+    {
+        pregunta : `¿Qué es una interfaz en Java?`,
+        options : [
+            "Un conjunto de métodos que deben ser implementados por una clase",
+            "Una clase abstracta",
+            "Un conjunto de instrucciones",
+            "Una función"
+        ],
+        isCorrect : function (option){
+            return option === this.options[0];
+        }
+    },
+    {
+        pregunta : `¿Cómo se utiliza la palabra clave "implements" en Java?`,
+        options : [
+            "Para indicar que una clase implementa una interfaz",
+            "Para importar métodos de otra clase",
+            "Para crear una variable global",
+            "Para crear un objeto",
+        ],
+        isCorrect : function (option){
+            return option === this.options[0];
+        }
+    },
+    {
+        pregunta : `¿Qué es una sobrecarga de método en Java?`,
+        options : [
+            "Una técnica para reutilizar el nombre de un método con diferentes parámetros",
+            "Una clase abstracta",
+            "Un conjunto de instrucciones",
+            "Una función"
+        ],
+        isCorrect : function (option){
+            return option === this.options[0];
+        }
+    },
+    {
+        pregunta : `¿Qué es una sobreescritura de método en Java?`,
+        options : [
+            "Una técnica para reemplazar un método en una clase hija con un comportamiento diferente",
+            "Una clase abstracta",
+            "Un conjunto de instrucciones",
+            "Una función"
+        ],
+        isCorrect : function (option){
+            return option === this.options[0];
         }
     }
 ]

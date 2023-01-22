@@ -9,7 +9,9 @@ function printOpcions(options){
         type="button" id="pregunta-${index}" 
         >${element}</button>
     `;
+
     });
+    
     return div;
 }
 

@@ -9,6 +9,7 @@ import { printOpcions, printElementContent } from "./java/templates/question.js"
 
 let app = document.getElementById("app");
 let scoreElement = document.getElementById("score");
+let preguntas = "";
 
 homeTemplate(app, data);
 setTitle(appInfo.name.toUpperCase());
@@ -17,9 +18,10 @@ let pointPerCorrectAnswer  =0;
 let questionsLength = 0;
 
 function init(){
-    questionsLength = quiz.questions.length;
-    pointPerCorrectAnswer = 100/questionsLength;
+    questionsLength = preguntas.length;
+    pointPerCorrectAnswer = quiz.getPointsPerAnswer();
     console.log("preguntas "+ questionsLength);
+    console.log("preguntas son: "+ preguntas);
     console.log("puntos por pregunta correcta " + pointPerCorrectAnswer);
     
     if(app.hasChildNodes()){
@@ -34,8 +36,8 @@ function init(){
        endGame();
     }
     else{
-        app.appendChild(printElementContent(quiz.questions[quiz.currentPosition].pregunta, "h2"));
-        app.appendChild(printOpcions(quiz.questions[quiz.currentPosition].options));
+        app.appendChild(printElementContent(preguntas[quiz.currentPosition].pregunta, "h2"));
+        app.appendChild(printOpcions(preguntas[quiz.currentPosition].options));
         let ele = app.querySelector("div#options");
         ele.addEventListener("click",answer);
     }
@@ -44,8 +46,19 @@ function answer(event){
     let elem = event.target;
     let valor = elem.textContent;
     if(elem.tagName.toLowerCase() === "button"){
-        let correctAnswer = quiz.questions[quiz.currentPosition].correct();
-        if(correctAnswer != valor){
+        if(preguntas[quiz.currentPosition].isCorrect(valor)){
+            //playSuccess(); TODO
+            elem.classList.remove("btn-light");
+            elem.classList.add("btn-success");
+            quiz.currentPosition++;
+            quiz.score += pointPerCorrectAnswer;
+            quiz.correctAnswers++;
+            setTimeout(() => {
+                init();
+              }, 1000)
+            
+        }
+        else{
             //playError(); TODO
             elem.classList.remove("btn-light");
             elem.classList.add("btn-danger");
@@ -56,19 +69,9 @@ function answer(event){
                 init();
               }, 1000)
         }
-        else{
-            //playSuccess(); TODO
-            elem.classList.remove("btn-light");
-            elem.classList.add("btn-success");
-            quiz.currentPosition++;
-            quiz.score += pointPerCorrectAnswer;
-            quiz.correctAnswers++;
-            setTimeout(() => {
-                init();
-              }, 1000)
-        }
         //printpuntuacion(); TODO
-        console.log(quiz.score)
+        console.log("quiz.score" + quiz.score);
+        console.log("quiz.getScore" + quiz.getScore());
     }
 }
 function startGame(obj){
@@ -83,6 +86,7 @@ function startGame(obj){
         default:
             break;
     }
+    preguntas = quiz.getQuestionsRandom();
     app.innerHTML = printAlertTemplate(quiz.getNormas());
     app.innerHTML += `<img src="${obj[0].img}" alt="${obj[0].title}" width="200px"></img><br>`;
     app.innerHTML += `<input class="btn btn-outline-info my-5" type="button" id="startGame" value="Empezar"></input><br>`
@@ -106,7 +110,8 @@ function endGame() {
         quiz.correctAnswers = 0;
         quiz.inCorrectAnswers = 0;
         let elem = app.appendChild(printElementContent(`Volver a empezar`, "button", "btn btn-outline-info","startGame"));
-        elem.querySelector("#startGame").addEventListener("click", init)
+        elem.querySelector("#startGame").addEventListener("click", init);
+        preguntas = quiz.getQuestionsRandom();
 }
 
 function resumGame() {
