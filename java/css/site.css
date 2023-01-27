@@ -1,10 +1,17 @@
 :root{
     --backgroudDark: #161b22;
     --backgroudDarkLight:#24292f;
+    --backgroundGray : #cccccc;
 }
 *{
     padding: 0;
     margin: 0;
+}
+a[data-bs-toggle="collapse"]{
+    background-color: var(--backgroundGray) !important;
+    color: white;
+    margin: 5px;
+    box-shadow: 0 3px 2px rgb(0 0 0 / 4%), 0 7px 5px rgb(0 0 0 / 2%), 0 13px 10px rgb(0 0 0 / 2%), 0 22px 17px rgb(0 0 0 / 2%);
 }
 #score .badge{
  font-size: xx-large;
@@ -15,7 +22,7 @@
 .bg-secondary{
     background-color: var(--backgroudDarkLight) !important;
 }
-div.bg-secondary > div.card-header{
+div.bg-secondary > div.card-header ,a.bg-secondary{
     background-color: var(--backgroudDark) !important;
 }
 .btn-secondary{

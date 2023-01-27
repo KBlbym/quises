@@ -5,11 +5,13 @@ import {printAlertTemplate} from './java/templates/alertTemplate.js';
 import {quiz} from './java/js/quiz.js';
 import {questionsList} from './java/js/importQuestions.js';
 import { printOpcions, printElementContent } from "./java/templates/question.js";
+import { resumeQuiz } from "./java/templates/resumeQuiz.js";
 
 
 let app = document.getElementById("app");
 let scoreElement = document.getElementById("score");
 let preguntas = "";
+let respuestas = [];
 
 homeTemplate(app, data);
 setTitle(appInfo.name.toUpperCase());
@@ -17,20 +19,21 @@ setTitle(appInfo.name.toUpperCase());
 let pointPerCorrectAnswer  =0;
 let questionsLength = 0;
 
-function init(){
+function startQuiz(){
+    preguntas = quiz.getQuestionsRandom();
     questionsLength = preguntas.length;
     pointPerCorrectAnswer = quiz.getPointsPerAnswer();
-    console.log("preguntas "+ questionsLength);
-    console.log("preguntas son: "+ preguntas);
-    console.log("puntos por pregunta correcta " + pointPerCorrectAnswer);
-    
+    printQuestion();
+}
+
+function printQuestion(){
     if(app.hasChildNodes()){
         app.innerHTML = "";
     }
     if(scoreElement.hasChildNodes()){
         scoreElement.innerHTML = "";
     }
-    scoreElement.append(printElementContent(quiz.getScore(), "span", "badge bg-primary"))
+    scoreElement.append(printElementContent(quiz.scoreToString()))
 
     if(quiz.currentPosition == questionsLength){
        endGame();
@@ -54,7 +57,7 @@ function answer(event){
             quiz.score += pointPerCorrectAnswer;
             quiz.correctAnswers++;
             setTimeout(() => {
-                init();
+                printQuestion();
               }, 1000)
             
         }
@@ -66,15 +69,15 @@ function answer(event){
             quiz.currentPosition++;
             quiz.inCorrectAnswers++;
             setTimeout(() => {
-                init();
+                printQuestion();
               }, 1000)
         }
+        respuestas.push(valor);
         //printpuntuacion(); TODO
-        console.log("quiz.score" + quiz.score);
-        console.log("quiz.getScore" + quiz.getScore());
     }
 }
-function startGame(obj){
+function init(obj){
+    
     setTitle(obj[0].description.toUpperCase());
     switch (obj[0].id) {
         case "PRO":
@@ -86,41 +89,32 @@ function startGame(obj){
         default:
             break;
     }
-    preguntas = quiz.getQuestionsRandom();
+    
     app.innerHTML = printAlertTemplate(quiz.getNormas());
     app.innerHTML += `<img src="${obj[0].img}" alt="${obj[0].title}" width="200px"></img><br>`;
-    app.innerHTML += `<input class="btn btn-outline-info my-5" type="button" id="startGame" value="Empezar"></input><br>`
+    app.innerHTML += `<input class="btn btn-outline-info my-5" type="button" id="init" value="Empezar"></input><br>`
     app.innerHTML += `<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Reglas</button>`
-    document.getElementById("startGame").addEventListener("click", function() {
-    init();
+    document.getElementById("init").addEventListener("click", function() {
+    startQuiz();
     });
 }
 function endGame() {
-    app.appendChild(printElementContent(
-        `Has contestado a 
-        ${quiz.correctAnswers == 1 ? `${quiz.correctAnswers} pregunta <b>correcta</b>`: `${quiz.correctAnswers} preguntas <b>correctas</b>`} y 
-        ${quiz.inCorrectAnswers == 1 ? `${quiz.inCorrectAnswers} pregunta <b>incorrectas</b>`: `${quiz.inCorrectAnswers} preguntas <b>incorrectas</b>`}
-        tu puntuación es: ${quiz.getScore()} por lo tanto ${quiz.getScore() >= quiz.scoreToWin ? "<b>HAS SUPERADO LA PRUEBA</b>" : "<b>NO HAS SUPERADO LA PRUEBA</b>"}
-        `, 
-        "div",
-        quiz.getScore() >= quiz.scoreToWin ? "alert alert-success" : "alert alert-danger"
-        ));
-        quiz.currentPosition = 0;
-        quiz.score = 0;
-        quiz.correctAnswers = 0;
-        quiz.inCorrectAnswers = 0;
-        let elem = app.appendChild(printElementContent(`Volver a empezar`, "button", "btn btn-outline-info","startGame"));
-        elem.querySelector("#startGame").addEventListener("click", init);
-        preguntas = quiz.getQuestionsRandom();
+    app.appendChild(printElementContent(quiz.ended(), "div", quiz.score >= quiz.scoreToWin ? "alert alert-success" : "alert alert-danger"));
+        let elem = app.appendChild(printElementContent(`Volver a empezar`, "button", "btn btn-outline-info","init"));
+        let showResumenButton = app.appendChild(printElementContent(`Ver preguntas`, "a", "btn btn-outline-info","showResumen"));
+        elem.querySelector("#init").addEventListener("click", startQuiz);
+        showResumenButton.querySelector("#showResumen").addEventListener("click", showResumen);
+        scoreElement.innerHTML = "";
+        quiz.reset();
 }
 
-function resumGame() {
-    
+async function showResumen() {
+    app.innerHTML += resumeQuiz(preguntas,respuestas);
 }
 app.addEventListener("click", function (event) {
     let element = event.target;
     if(element.tagName.toLowerCase() == "button" && !element.id.startsWith("pregunta") ){
-        startGame(data.filter(item => item.id == event.target.value));
+        init(data.filter(item => item.id == event.target.value));
     }
 });
 

@@ -11,8 +11,9 @@ function homeTemplate(app,data) {
             <div class="card-body">
                 <h5 class="card-title">${item.title}</h5>
                 <p class="card-text text-muted">${item.description}</p>
-                <a href="${item.url}" class="btn btn-primary">Entrar</a>
-                ${item.title != "HTML5" ? `<button class="btn btn-primary" value="${item.id}">INICIAR</button>` : ''}
+                ${item.title != "HTML5" 
+                ? `<button class="btn btn-primary" value="${item.id}">INICIAR</button>` 
+                : `<a href="${item.url}" class="btn btn-primary">INICIAR</a>`}
                 
             </div>
             </div>

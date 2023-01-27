@@ -11,7 +11,7 @@ let input = document.getElementById("tagsInput");
 let print = document.getElementById("showTags");
 let tagsCounts = document.getElementById("tagsCounts");
 
-let btnStartGame = document.getElementById("startGame");
+let btnInit = document.getElementById("init");
 let gameInfo = document.getElementById("gameInfo");
 
 
@@ -39,7 +39,7 @@ function printTag(tag){
     tagsCounts.firstChild.textContent = tagsRemaining;
 }
 
-btnStartGame.addEventListener("click", function (event) {
+btnInit.addEventListener("click", function (event) {
     init(this);
     startTimer();
 });
@@ -70,7 +70,7 @@ function gameOver(){
     }
     gameInfoParagraph.innerHTML = `Has acertado ${correctAnswerCount} ${correctAnswerCount == 1 ? "etiqueta" : "etiquetas"} de los ${totalTags} existentes.<br>
     ${(correctAnswerCount > (totalTags*percentageNeeded/100) ? "<b>Has superado la prueba</b>" : "<b>No has conseguido superar la prueba.</b>")}`;
-    init(btnStartGame);
+    init(btnInit);
 }
 function init(element){
     duracion = 1000*60*/*min*/duracionInMinuts;
